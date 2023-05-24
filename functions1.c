@@ -99,12 +99,6 @@ void check_line(char *line, stack_t **stack)
 
 	if (var.args[0] != NULL)
 	{
-		if (instruction[i].opcode == NULL)
-		{
-			free(var.args);
-			fprintf(stderr, "L%d: unknown instruction %s\n", var.line, var.args[0]);
-			exit(EXIT_FAILURE);
-		}
 		while (instruction[i].opcode != NULL)
 		{
 			if (strcmp(instruction[i].opcode, var.args[0]) == 0)
@@ -114,5 +108,8 @@ void check_line(char *line, stack_t **stack)
 			}
 			i++;
 		}
+		free(var.args);
+		fprintf(stderr, "L%d: unknown instruction %s\n", var.line, var.args[0]);
+		exit(EXIT_FAILURE);
 	}
 }
