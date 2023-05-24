@@ -89,6 +89,7 @@ void check_line(char *line, stack_t **stack)
 	instruction_t instruction[] = {
 		{"push", push},
 		{"pall", pall},
+		{"pint", pint},
 		{NULL, NULL}
 	};
 	int i = 0;
