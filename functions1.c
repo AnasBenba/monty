@@ -1,18 +1,16 @@
 #include "monty.h"
 
-var_t var;
-
 int check_integer(const char* str)
 {
-	int i;
+	int i = 0;
 
-	for (i = 0; str[i] != '\0'; i++)
+	if (str[i] == '-')
 	{
-		if (i == 0 && (str[i] == '-' || str[i] == '+'))
-		{
-			continue;
-		}
-		if (str[i] < '0' || str[i] > '9')
+		i++;
+	}
+	for ( ; str[i] != '\0'; i++)
+	{
+		if (!isdigit(str[i]))
 		{
 			return (0);
 		}
@@ -25,7 +23,9 @@ void push(stack_t **stack, unsigned int line_number)
 	int val;
 	stack_t *new = malloc(sizeof(stack_t));
 
-	if (var.args[1] == NULL || check_integer(var.args[1]) == 0)
+	printf("%s/n", var.args[1]);
+
+	if (var.args[1] == NULL || !check_integer(var.args[1]))
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
@@ -72,8 +72,8 @@ void check_line(char *line, stack_t **stack)
         };
         int i = 0;
 
-        var.args[0] = strtok(line, "\n\t");
-        var.args[1] = strtok(NULL, "\n\t");
+        var.args[0] = strtok(line, " ");
+        var.args[1] = strtok(NULL, " ");
 
         if (var.args[0] != NULL)
         {
