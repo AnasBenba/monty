@@ -33,11 +33,6 @@ void _div(stack_t **stack, unsigned int line_number)
 	stack_t *ptr = *stack;
 	int i = 0;
 
-	if (ptr->n == 0)
-	{
-		fprintf(stderr, "L%i: division by zero\n", line_number);
-		exit(EXIT_FAILURE);
-	}
 	while (ptr)
 	{
 		ptr = ptr->next;
@@ -46,6 +41,11 @@ void _div(stack_t **stack, unsigned int line_number)
 	if (i < 2)
 	{
 		fprintf(stderr, "L%i: can't div, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	if ((*stack)->n == 0)
+	{
+		fprintf(stderr, "L%i: division by zero\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	ptr = *stack;
