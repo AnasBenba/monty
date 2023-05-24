@@ -31,9 +31,18 @@ void pint(stack_t **stack, unsigned int line_number)
 	printf("%i\n", (*stack)->n);
 }
 
+/**
+ * pop - Removes the top element from the stack
+ * @stack: Pointer to the pointer of the stack's top element
+ * @line_number: Line number where the pop function is called
+ *
+ * Description: This function removes the top element from the stack.
+ * If the stack is empty, it prints an error message and exits the program.
+ */
 void pop(stack_t **stack, unsigned int line_number)
 {
 	stack_t *ptr;
+
 	if (*stack == NULL)
 	{
 		fprintf(stderr, "L%i: can't pop an empty stack\n", line_number);
@@ -44,12 +53,22 @@ void pop(stack_t **stack, unsigned int line_number)
 	free(ptr);
 }
 
+/**
+ * swap - Swaps the top two elements of the stack
+ * @stack: Pointer to the pointer of the stack's top element
+ * @line_number: Line number where the swap function is called
+ *
+ * Description: This function swaps the positions
+ * of the top two elements in the stack.
+ * If the stack has fewer than 2 elements,
+ * it prints an error message and exits the program.
+ */
 void swap(stack_t **stack, unsigned int line_number)
 {
 	stack_t *ptr = *stack;
 	int i = 0;
 
-	while(ptr)
+	while (ptr)
 	{
 		ptr = ptr->next;
 		i++;
@@ -65,12 +84,21 @@ void swap(stack_t **stack, unsigned int line_number)
 	(*stack)->n = i;
 }
 
+/**
+ * add - Adds the top two elements of the stack
+ * @stack: Pointer to the pointer of the stack's top element
+ * @line_number: Line number where the add function is called
+ *
+ * Description: This function adds the top two elements in the stack
+ * and replaces them with their sum. If the stack has fewer than 2 elements,
+ * it prints an error message and exits the program.
+ */
 void add(stack_t **stack, unsigned int line_number)
 {
 	stack_t *ptr = *stack;
 	int i = 0;
 
-	while(ptr)
+	while (ptr)
 	{
 		ptr = ptr->next;
 		i++;
