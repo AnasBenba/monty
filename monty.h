@@ -19,9 +19,9 @@
  */
 typedef struct stack_s
 {
-        int n;
-        struct stack_s *prev;
-        struct stack_s *next;
+	int n;
+	struct stack_s *prev;
+	struct stack_s *next;
 } stack_t;
 
 /**
@@ -34,21 +34,27 @@ typedef struct stack_s
  */
 typedef struct instruction_s
 {
-        char *opcode;
-        void (*f)(stack_t **stack, unsigned int line_number);
+	char *opcode;
+	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+/**
+ * struct var_s - Structure representing program variables
+ * @args: Double pointer to an array of strings
+ * @line: Line number
+ */
 typedef struct var_s
 {
 	char **args;
 	unsigned int line;
-}var_t;
+} var_t;
 
 extern var_t var;
 
-int check_integer(const char* str);
+int check_integer(const char *str);
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
 void check_line(char *line, stack_t **stack);
+void free_stack(stack_t **stack);
 
 #endif
