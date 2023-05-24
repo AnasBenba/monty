@@ -9,7 +9,7 @@ int check_integer(const char *str)
 {
 	int i = 0;
 
-	if (str[i] == '-')
+	if (str[i] == '-' || str[i] == '+')
 	{
 		i++;
 	}
