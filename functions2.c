@@ -64,3 +64,25 @@ void swap(stack_t **stack, unsigned int line_number)
 	ptr->n = (*stack)->n;
 	(*stack)->n = i;
 }
+
+void add(stack_t **stack, unsigned int line_number)
+{
+	stack_t *ptr = *stack;
+	int i = 0;
+
+	while(ptr)
+	{
+		ptr = ptr->next;
+		i++;
+	}
+	if (i < 2)
+	{
+		fprintf(stderr, "L%i: can't add, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	ptr = *stack;
+	i = (*stack)->n;
+	*stack = (*stack)->next;
+	free(ptr);
+	(*stack)->n += i;
+}
