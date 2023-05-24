@@ -108,8 +108,8 @@ void check_line(char *line, stack_t **stack)
 			}
 			i++;
 		}
-		free(var.args);
 		fprintf(stderr, "L%d: unknown instruction %s\n", var.line, var.args[0]);
+		free(var.args);
 		exit(EXIT_FAILURE);
 	}
 }
