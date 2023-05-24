@@ -94,6 +94,7 @@ void check_line(char *line, stack_t **stack)
 		{"swap", swap},
 		{"add", add},
 		{"nop", nop},
+		{"sub", sub},
 		{NULL, NULL}
 	};
 	int i = 0;
