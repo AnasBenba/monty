@@ -96,6 +96,7 @@ void check_line(char *line, stack_t **stack)
 		{"nop", nop},
 		{"sub", sub},
 		{"div", _div},
+		{"mul", mul},
 		{NULL, NULL}
 	};
 	int i = 0;
