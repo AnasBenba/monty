@@ -90,6 +90,7 @@ void check_line(char *line, stack_t **stack)
 		{"push", push},
 		{"pall", pall},
 		{"pint", pint},
+		{"pop", pop},
 		{NULL, NULL}
 	};
 	int i = 0;
