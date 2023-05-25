@@ -87,17 +87,12 @@ void pall(stack_t **stack, unsigned int line_number)
 void check_line(char *line, stack_t **stack)
 {
 	instruction_t instruction[] = {
-		{"push", push},
-		{"pall", pall},
-		{"pint", pint},
-		{"pop", pop},
-		{"swap", swap},
-		{"add", add},
-		{"nop", nop},
-		{"sub", sub},
-		{"div", _div},
-		{"mul", mul},
-		{"mod", mod},
+		{"push", push},{"pall", pall},
+		{"pint", pint},{"pop", pop},
+		{"swap", swap},{"add", add},
+		{"nop", nop},{"sub", sub},
+		{"div", _div},{"mul", mul},
+		{"mod", mod},{"pchar", pchar},
 		{NULL, NULL}
 	};
 	int i = 0;
