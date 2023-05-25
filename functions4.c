@@ -88,3 +88,32 @@ void rotl(stack_t **stack, unsigned int line_number)
 	tmp->prev = ptr;
 	ptr->next = tmp;
 }
+
+void rotr(stack_t **stack, unsigned int line_number)
+{
+	stack_t *ptr = *stack, *tmp;
+	int i;
+	(void)line_number;
+
+	if (*stack == NULL || (*stack)->next == NULL)
+	{
+		return;
+	}
+	while (ptr->next != NULL)
+	{
+		ptr = ptr->next;
+	}
+	i = ptr->n;
+	free(ptr);
+
+	tmp = malloc(sizeof(stack_t));
+	if (tmp == NULL)
+	{
+		exit(EXIT_FAILURE);
+	}
+	tmp->n = i;
+	tmp->next = *stack;
+	tmp->prev = NULL;
+	(*stack)->prev = tmp;
+	*stack = tmp;
+}
