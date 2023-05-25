@@ -1,5 +1,10 @@
 #include "monty.h"
 
+/**
+ * pchar - Prints the ASCII character at the top of the stack
+ * @stack: Double pointer to the stack
+ * @line_number: Line number being executed
+ */
 void pchar(stack_t **stack, unsigned int line_number)
 {
 	int i;
@@ -12,7 +17,7 @@ void pchar(stack_t **stack, unsigned int line_number)
 
 	i = (*stack)->n;
 
-	if ((i >= 65 && i <= 90) || (i >= 97 && i <= 122))
+	if (i >= 0 || i <= 127)
 	{
 		printf("%c\n", i);
 	}
