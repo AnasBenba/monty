@@ -89,6 +89,11 @@ void rotl(stack_t **stack, unsigned int line_number)
 	ptr->next = tmp;
 }
 
+/**
+ * rotr - Rotates the stack to the right
+ * @stack: Double pointer to the stack
+ * @line_number: Line number being executed
+ */
 void rotr(stack_t **stack, unsigned int line_number)
 {
 	stack_t *ptr = *stack, *tmp;
