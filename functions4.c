@@ -53,3 +53,34 @@ void pstr(stack_t **stack, unsigned int line_number)
 		printf("\n");
 	}
 }
+
+/**
+ * rotl - Rotates the stack to the top
+ * @stack: Double pointer to the stack
+ * @line_number: Line number being executed
+ */
+void rotl(stack_t **stack, unsigned int line_number)
+{
+	stack_t *ptr = *stack, *tmp;
+	int i;
+	(void)line_number;
+
+	*stack = (*stack)->next;
+	i = ptr->n;
+	free(ptr);
+	ptr = *stack;
+	while (ptr->next != NULL)
+	{
+		ptr = ptr->next;
+	}
+
+	tmp = malloc(sizeof(stack_t));
+	if (tmp == NULL)
+	{
+		exit(EXIT_FAILURE);
+	}
+	tmp->n = i;
+	tmp->next = NULL;
+	tmp->prev = ptr;
+	ptr->next = tmp;
+}
