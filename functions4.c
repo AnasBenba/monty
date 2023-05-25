@@ -65,6 +65,10 @@ void rotl(stack_t **stack, unsigned int line_number)
 	int i;
 	(void)line_number;
 
+	if (*stack == NULL)
+	{
+		return;
+	}
 	*stack = (*stack)->next;
 	i = ptr->n;
 	free(ptr);
