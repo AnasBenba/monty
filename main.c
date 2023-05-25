@@ -38,6 +38,10 @@ int main(int argc, char *argv[])
 
 	while (fgets(line, MAX, file_path))
 	{
+		if (line[0] == '#')
+		{
+			continue;
+		}
 		check_line(line, &stack);
 		var.line++;
 	}
